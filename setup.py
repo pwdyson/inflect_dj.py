@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='inflect_dj',
-      version='v0.1.0a',
+      version='v0.1.1',
       description="Correctly generate plurals when using Django",
       author='Paul Dyson',
       author_email='pwdyson@yahoo.com',
