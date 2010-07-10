@@ -1,0 +1,7 @@
+
+v0.1.0a
+
+set up had a dependency on inflect, which is not necessarily on the
+system when being installed. Fixed this to go from v0.1.0 to v0.1.0a
+
+
