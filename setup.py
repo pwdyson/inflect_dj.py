@@ -8,6 +8,7 @@ setup(name='inflect_dj',
       url="http://pypi.python.org/pypi/inflect_dj",
       py_modules=['inflect_dj'],
       requires=['inflect'],
+      provides=['inflect_dj'],
       keywords = ['plural', 'django'],
       classifiers = [
         "Programming Language :: Python",
