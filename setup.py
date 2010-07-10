@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-import inflect
+import inflect_dj
 
 
 setup(name='inflect_dj',
@@ -10,6 +10,7 @@ setup(name='inflect_dj',
       author_email='pwdyson@yahoo.com',
       url="http://pypi.python.org/pypi/inflect_dj",
       py_modules=['inflect_dj'],
+      requires=['inflect'],
       keywords = ['plural', 'django'],
       classifiers = [
         "Programming Language :: Python",
