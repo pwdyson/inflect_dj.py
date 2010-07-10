@@ -5,12 +5,15 @@ import inflect
 
 __ver_major__ = 0
 __ver_minor__ = 1
-__ver_patch__ = 0
+__ver_patch__ = 1
 __ver_sub__ = ""
 __version__ = "%d.%d.%d%s" % (__ver_major__,__ver_minor__,
                               __ver_patch__,__ver_sub__)
 
 p = inflect.engine()
+
+# TODO: a bad hack, need to fix
+class Meta: pass
 
 def remove_camel_case(txt):
     '''
@@ -29,7 +32,7 @@ def remove_camel_case(txt):
         ret.append(txt[-1])
         return (''.join(ret)).lower()
     else:
-        return txt.lower()
+        return txt
 
 def pl(cls):
     '''
@@ -37,12 +40,12 @@ def pl(cls):
     verbose_name (or the class name if verbose_name is not
     defined in the Meta class).
 
-    Decorator for class Meta inside of django models.Model classes.
+    Decorator for django models.Model classes.
 
     USAGE:
 
+    @pl
     class mycategory(models.Model):
-        @pl
         class Meta:
             verbose_name = 'category'
             [rest of the Meta class definition]
@@ -50,8 +53,8 @@ def pl(cls):
     The @pl decorator will set Meta.verbose_name_plural = 'categories'
     OR
 
+    @pl
     class category(models.Model):
-        @pl
         class Meta:
             [class Meta definition]
 
@@ -62,12 +65,16 @@ def pl(cls):
         class Meta:
             verbose_name = 'category'
             [rest of the Meta class definition]
-        Meta = pl(Meta)
+    mycategory = pl(mycategory)
 
     '''
     try:
-        cls.verbose_name_plural = p.pl(cls.verbose_name)
+        cls.Meta.verbose_name_plural = p.pl(cls.Meta.verbose_name)
     except AttributeError:
-        cls.verbose_name_plural = p.pl(remove_camel_case(cls.__name__))
+        try:
+            cls.Meta.verbose_name_plural = p.pl(remove_camel_case(cls.__name__))
+        except AttributeError:
+            cls.Meta = Meta() # TODO: cls.Meta now an instance not a class. need to fix.
+            cls.Meta.verbose_name_plural = p.pl(remove_camel_case(cls.__name__))
     return cls
 

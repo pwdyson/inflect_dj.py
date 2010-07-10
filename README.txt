@@ -28,14 +28,14 @@ DESCRIPTION
 @pl
 ---
 
-Decorator for class ``Meta`` inside of Django ``models.Model`` classes.
+Decorator for the Django ``models.Model`` classes.
 
 
-Decorating the ``Meta`` class with ``@pl`` will ensure that the plural form
-of the model name will be rendered correctly.
+Decorating a child class of ``model.Model`` with ``@pl`` will ensure that
+the plural form of the model name will be rendered correctly.
 
-``@pl`` will set ``verbose_name_plural`` to the correct plural of the model
-name or the correct plural of ``verbose_name`` if it is provided.
+``@pl`` will set ``Meta.verbose_name_plural`` to the correct plural of the model
+name or the correct plural of ``Meta.verbose_name`` if it is provided.
 
 It uses the module ``inflect.py`` to determine the correct pluralisation.
 
@@ -47,9 +47,9 @@ USAGE
         from django.db import models
         from inflect_dj import pl
 
+        @pl
         class mycategory(models.Model):
             [definition of the model]
-            @pl
             class Meta:
                 verbose_name = 'category'
                 [rest of the Meta class definition]
@@ -62,9 +62,9 @@ USAGE
         from django.db import models
         from inflect_dj import pl
 
+        @pl
         class category(models.Model):
             [definition of the model]
-            @pl
             class Meta:
                 [class Meta definition]
 
@@ -76,7 +76,7 @@ Earlier versions of Python
 --------------------------
 
 If you are using a Python version earlier than 2.6 you cannot use
-class decorators and must explicitly redefine ``Meta`` with a call to
+class decorators and must explicitly redefine the class with a call to
 ``pl()``::
 
  from django.db import models
@@ -87,7 +87,7 @@ class decorators and must explicitly redefine ``Meta`` with a call to
      class Meta:
          verbose_name = 'category'
          [rest of the Meta class definition]
-     Meta = pl(Meta)
+ mycategory = pl(mycategory)
 
 
 
