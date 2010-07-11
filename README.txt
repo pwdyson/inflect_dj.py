@@ -10,7 +10,7 @@ inflect_dj.py - Generate plurals for use with Django.
 VERSION
 =======
 
-This document describes version 0.1.2 of inflect_dj.py
+This document describes version 0.1.3 of inflect_dj.py
 
 INSTALLATION
 ============

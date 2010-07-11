@@ -1,4 +1,9 @@
 
+
+v0.1.3
+
+
+
 v0.1.2 (2010-07-11)
 
 * major change. Code reduced to nearly one line as _meta.verbose_name
