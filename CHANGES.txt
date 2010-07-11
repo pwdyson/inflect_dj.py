@@ -1,4 +1,9 @@
 
+v0.1.2 (2010-07-11)
+
+* major change. Code reduced to nearly one line as _meta.verbose_name
+always contains the name to be pluralised. Much, much simplier now.
+
 v0.1.1 (2010-07-11)
 
 * major change. decorate the model not the Meta. Otherwise can't get
