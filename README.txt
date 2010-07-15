@@ -34,9 +34,6 @@ Decorator for the Django ``models.Model`` classes.
 Decorating a child class of ``model.Model`` with ``@pl`` will ensure that
 the plural form of the model name will be rendered correctly.
 
-``@pl`` will set ``Meta.verbose_name_plural`` to the correct plural of the model
-name or the correct plural of ``Meta.verbose_name`` if it is provided.
-
 It uses the module ``inflect.py`` to determine the correct pluralisation.
 
 USAGE
@@ -54,8 +51,7 @@ USAGE
                 verbose_name = 'category'
                 [rest of the Meta class definition]
 
-   The ``@pl`` decorator will set ``Meta.verbose_name_plural`` to
-   ``'categories'``, ensuring the plural will be displayed correctly.
+   The plural will be displayed correctly as ``categories``.
 
  2. Using ``@pl`` without specifying ``verbose_name``::
 
@@ -69,8 +65,8 @@ USAGE
                 [class Meta definition]
 
 
-    The ``@pl`` decorator will ``set Meta.verbose_name_plural`` to
-    ``'categories'``, as this is the plural of the class name.
+   The plural will be displayed correctly as ``categories``, as this
+   is the plural of the class name.
 
 Earlier versions of Python
 --------------------------
