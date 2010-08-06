@@ -1,13 +1,16 @@
 
 
-v0.1.3
+v0.2.0 (2010-08-06)
+
+* major change. rename decorator from pl to verbose_name_plural.
+* use version 0.2.0 of inflect so inflect method is plural() not pl()
 
 
 
 v0.1.2 (2010-07-11)
 
 * major change. Code reduced to nearly one line as _meta.verbose_name
-always contains the name to be pluralised. Much, much simplier now.
+always contains the name to be pluralised. Much, much simpler now.
 
 v0.1.1 (2010-07-11)
 

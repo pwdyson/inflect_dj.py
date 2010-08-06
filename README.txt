@@ -10,7 +10,7 @@ inflect_dj.py - Generate plurals for use with Django.
 VERSION
 =======
 
-This document describes version 0.1.3 of inflect_dj.py
+This document describes version 0.2.0 of inflect_dj.py
 
 INSTALLATION
 ============
@@ -25,13 +25,13 @@ or
 DESCRIPTION
 ===========
 
-@pl
+@verbose_name_plural
 ---
 
 Decorator for the Django ``models.Model`` classes.
 
 
-Decorating a child class of ``model.Model`` with ``@pl`` will ensure that
+Decorating a child class of ``model.Model`` with ``@verbose_name_plural`` will ensure that
 the plural form of the model name will be rendered correctly.
 
 It uses the module ``inflect.py`` to determine the correct pluralisation.
@@ -39,12 +39,12 @@ It uses the module ``inflect.py`` to determine the correct pluralisation.
 USAGE
 -----
 
- 1. Using ``@pl`` when specifying a ``verbose_name`` for the model::
+ 1. Using ``@verbose_name_plural`` when specifying a ``verbose_name`` for the model::
 
         from django.db import models
-        from inflect_dj import pl
+        from inflect_dj import verbose_name_plural
 
-        @pl
+        @verbose_name_plural
         class mycategory(models.Model):
             [definition of the model]
             class Meta:
@@ -53,12 +53,12 @@ USAGE
 
    The plural will be displayed correctly as ``categories``.
 
- 2. Using ``@pl`` without specifying ``verbose_name``::
+ 2. Using ``@verbose_name_plural`` without specifying ``verbose_name``::
 
         from django.db import models
-        from inflect_dj import pl
+        from inflect_dj import verbose_name_plural
 
-        @pl
+        @verbose_name_plural
         class category(models.Model):
             [definition of the model]
             class Meta:
@@ -73,17 +73,17 @@ Earlier versions of Python
 
 If you are using a Python version earlier than 2.6 you cannot use
 class decorators and must explicitly redefine the class with a call to
-``pl()``::
+``verbose_name_plural()``::
 
  from django.db import models
- from inflect_dj import pl
+ from inflect_dj import verbose_name_plural
 
  class mycategory(models.Model):
      [definition of the model]
      class Meta:
          verbose_name = 'category'
          [rest of the Meta class definition]
- mycategory = pl(mycategory)
+ mycategory = verbose_name_plural(mycategory)
 
 
 

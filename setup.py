@@ -1,13 +1,13 @@
 from distutils.core import setup
 
 setup(name='inflect_dj',
-      version='v0.1.3',
+      version='v0.2.0',
       description="Correctly generate plurals when using Django",
       author='Paul Dyson',
       author_email='pwdyson@yahoo.com',
       url="http://pypi.python.org/pypi/inflect_dj",
       py_modules=['inflect_dj'],
-      requires=['inflect'],
+      requires=['inflect>=0.2.0'],
       provides=['inflect_dj'],
       keywords = ['plural', 'django'],
       classifiers = [
