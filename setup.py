@@ -7,7 +7,7 @@ setup(name='inflect_dj',
       author_email='pwdyson@yahoo.com',
       url="http://pypi.python.org/pypi/inflect_dj",
       py_modules=['inflect_dj'],
-      requires=['inflect>=0.2.0'],
+      requires=['inflect (>=0.2.0)'],
       provides=['inflect_dj'],
       keywords = ['plural', 'django'],
       classifiers = [
